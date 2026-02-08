@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axe'S Permis | Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="js/tailwind.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="sticky top-0 z-50 bg-brand-bg/95 border-b border-white/10 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-brand-primary">Axe'S <span class="text-brand-text">Permis</span></div>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="hover:text-brand-accent">Accueil</a>
+                <a href="tarifs-formation.html" class="bg-brand-primary text-white text-brand-text px-4 py-2 rounded-full font-bold transition hover:bg-white/20">Formations & Tarifs</a>
+                <a href="financement.html" class="hover:text-brand-accent">Financement</a>
+                <a href="label-qualite.html" class="hover:text-brand-accent">Label qualité</a>
+                <a href="contact.html" class="hover:text-brand-accent">Contact</a>
+            </div>
+            <a href="inscription.html"
+                class="hidden md:block bg-brand-primary hover:bg-brand-accent px-4 py-2 rounded-lg transition">S'inscrire</a>
+            <button id="hamburger" class="md:hidden text-brand-primary focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col space-y-4 px-4 py-4 bg-brand-bg  border-white/10">
+            <a href="index.html" class="hover:text-brand-accent">Accueil</a>
+            <a href="tarifs-formation.html" class="hover:text-brand-accent">Formations & Tarifs</a>
+            <a href="financement.html" class="hover:text-brand-accent">Financement</a>
+            <a href="label-qualite.html" class="hover:text-brand-accent">Label qualité</a>
+            <a href="contact.html" class="hover:text-brand-accent">Contact</a>
+            <a href="inscription.html" class="hover:text-brand-accent">S'inscrire</a>
+        </div>
+    </nav>
+
+    <header
+        class="relative min-h-[40vh] py-20 flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-brand-secondary to-brand-bg">
+        <h1 class="text-3xl md:text-6xl font-extrabold mb-4">Nos <span class="text-brand-primary">Formations</span> & Tarifs</h1>
+        <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl text-center italic">"Des formules transparentes et adaptées à tous les profils."</p>
+    </header>
+
+    <!-- Présentation de l'auto-école -->
+    <section class="py-12 md:py-20 bg-brand-secondary">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">L'Excellence à Saint-Denis</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Chez <span class="text-brand-primary font-bold">Axe'S Permis</span>, nous ne nous contentons pas de vous apprendre à conduire. 
+                        Nous formons des conducteurs responsables et sûrs d'eux. Située idéalement face à la gare de Saint-Denis, 
+                        notre auto-école met à votre disposition une équipe pédagogique passionnée et des outils modernes pour garantir votre réussite.
+                    </p>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-brand-primary"></i> Taux de réussite élevé</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-brand-primary"></i> Suivi personnalisé</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle" class="text-brand-primary"></i> Facilités de paiement</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-brand-bg p-8 rounded-2xl border border-white/5 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-brand-primary/20 rounded-full blur-xl"></div>
+                        <h3 class="text-xl font-bold mb-4">Pourquoi nous ?</h3>
+                        <p class="text-sm text-gray-400 italic mb-6">"Une auto-école qui s'adapte à ses élèves, et non l'inverse."</p>
+                        <a href="contact.html" class="inline-block text-brand-primary font-bold hover:text-brand-accent transition">Nous contacter <i data-lucide="arrow-right" class="inline w-4 h-4 ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations Permis B -->
+    <section class="py-12 md:py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center gap-4 mb-8 md:mb-12 justify-center">
+                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
+                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest text-center">Permis B (Voiture)</h2>
+                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <!-- Manuelle -->
+                <div class="bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition duration-300 group">
+                    <div class="h-2 bg-brand-primary w-full"></div>
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold">Boîte Manuelle</h3>
+                            <i data-lucide="car" class="text-brand-primary w-8 h-8"></i>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-6">La formation classique pour conduire tout type de véhicule.</p>
+                        <div class="text-4xl font-black text-brand-primary mb-2">890€ <span class="text-sm font-normal text-gray-400">/ dès</span></div>
+                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> Evaluation de départ</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> 20h de conduite</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> Kit pédagogique numérique</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> 1 présentation à l'examen</li>
+                        </ul>
+                        <a href="inscription.html" class="block w-full text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">Choisir cette formule</a>
+                    </div>
+                </div>
+
+                <!-- Automatique -->
+                <div class="bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition duration-300 group">
+                    <div class="h-2 bg-brand-accent w-full"></div>
+                    <div class="p-6 md:p-8">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl md:text-2xl font-bold">Boîte Automatique</h3>
+                            <i data-lucide="zap" class="text-brand-accent w-8 h-8"></i>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-6">Apprentissage simplifié et plus rapide (Permis BVA).</p>
+                        <div class="text-4xl font-black text-brand-primary mb-2">690€ <span class="text-sm font-normal text-gray-400">/ dès</span></div>
+                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> Evaluation de départ</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> 13h de conduite</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> Kit pédagogique numérique</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> 1 présentation à l'examen</li>
+                        </ul>
+                        <a href="inscription.html" class="block w-full text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">Choisir cette formule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations Permis A -->
+    <section class="py-12 md:py-20 bg-brand-secondary">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center gap-4 mb-8 md:mb-12 justify-center">
+                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
+                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest text-center">Permis A (Moto)</h2>
+                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
+            </div>
+
+            <div class="max-w-md mx-auto bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition duration-300">
+                <div class="h-48 bg-gray-800 relative">
+                    <img src="img/moto.png" alt="Moto" class="w-full h-full object-cover opacity-60">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i data-lucide="bike" class="w-16 h-16 text-white/80"></i>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-2">Permis A2</h3>
+                    <p class="text-gray-400 text-sm mb-6">Pour les passionnés de deux-roues.</p>
+                    <div class="text-4xl font-black text-brand-primary mb-6">690€ <span class="text-sm font-normal text-gray-400">/ dès</span></div>
+                    <ul class="text-left space-y-3 text-sm text-gray-300 mb-8 max-w-xs mx-auto">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> 20h de conduite</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> Piste privée (Parc des Expos)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> 2 présentations aux examens</li>
+                    </ul>
+                    <a href="inscription.html" class="block w-full text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">Je m'inscris</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations Post-Permis -->
+    <section class="py-12 md:py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">Formations Post-Permis</h2>
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <div class="p-6 border border-white/10 rounded-xl hover:bg-white/5 transition">
+                    <h4 class="text-xl font-bold mb-2 text-brand-primary">Passerelle B78 vers B</h4>
+                    <p class="text-sm text-gray-400 mb-4">Convertissez votre permis boîte auto en boîte manuelle.</p>
+                    <div class="flex justify-between items-end">
+                        <span class="text-3xl font-bold">295€</span>
+                        <span class="text-sm bg-white/10 px-3 py-1 rounded-full">7 heures</span>
+                    </div>
+                </div>
+                <div class="p-6 border border-white/10 rounded-xl hover:bg-white/5 transition">
+                    <h4 class="text-xl font-bold mb-2 text-brand-primary">Passerelle A2 vers A</h4>
+                    <p class="text-sm text-gray-400 mb-4">Après 2 ans de permis A2, passez au gros cube.</p>
+                    <div class="flex justify-between items-end">
+                        <span class="text-3xl font-bold">200€</span>
+                        <span class="text-sm bg-white/10 px-3 py-1 rounded-full">7 heures</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-black py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="text-3xl font-bold text-brand-primary mb-4">Axe'S Permis</div>
+                    <p class="text-brand-text text-sm max-w-sm">Votre auto-école de confiance en Île-de-France.
+                        Expertise,
+                        transparence et réussite au meilleur prix.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-brand-accent">Navigation</h5>
+                    <ul class="text-brand-text space-y-2 text-sm">
+                        <li><a href="label-qualite.html" class="hover:text-white transition">Label Qualité</a></li>
+                        <li><a href="financement.html" class="hover:text-white transition">Financements</a></li>
+                        <li><a href="inscription.html" class="hover:text-white transition">Pré-inscription</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-brand-accent">Légal</h5>
+                    <ul class="text-brand-text space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Mentions légales</a></li>
+                        <li><a href="#" class="hover:text-white transition">CGV</a></li>
+                        <li><a href="#" class="hover:text-white transition">Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 text-center text-gray-600 text-[10px] uppercase tracking-widest">
+                &copy; 2026 Auto-École Axe'S Permis | Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
