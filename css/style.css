@@ -1,0 +1,11 @@
+        body {
+            background-color: #121212;
+            color: #F2F2F2;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    
