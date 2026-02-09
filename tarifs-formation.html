@@ -87,189 +87,332 @@
     </nav>
 
 
-    <header
-        class="relative min-h-[40vh] py-20 flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-brand-secondary to-brand-bg">
-        <h1 class="text-3xl md:text-6xl font-extrabold mb-4">Nos <span class="text-brand-primary">Formations</span> &
-            Tarifs</h1>
-        <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl text-center italic">"Des formules transparentes et
-            adaptées à tous les profils."</p>
+    <!-- Sommaire / Navigation Rapide -->
+    <header class="mb-20 bg-brand-bg">
+        <section
+            class="relative min-h-[40vh] py-20 flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-brand-secondary to-brand-bg">
+            <h1 class="text-3xl md:text-6xl font-extrabold mb-4">Nos <span class="text-brand-primary">Formations</span>
+                &
+                Tarifs</h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl text-center italic">"Des formules transparentes et
+                adaptées à tous les profils."</p>
+        </section>
+
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="#permis-b"
+                    class="group p-6 bg-brand-secondary border border-white/5 rounded-xl hover:border-brand-primary transition text-center">
+                    <div class="text-brand-primary mb-3"><i data-lucide="car" class="w-10 h-10 mx-auto"></i></div>
+                    <h3 class="text-xl font-bold group-hover:text-brand-primary transition">Permis B</h3>
+                    <p class="text-sm text-gray-400 mt-2">Manuelle, Automatique & Code</p>
+                </a>
+                <a href="#permis-a"
+                    class="group p-6 bg-brand-secondary border border-white/5 rounded-xl hover:border-brand-primary transition text-center">
+                    <div class="text-brand-primary mb-3"><i data-lucide="bike" class="w-10 h-10 mx-auto"></i></div>
+                    <h3 class="text-xl font-bold group-hover:text-brand-primary transition">Permis A</h3>
+                    <p class="text-sm text-gray-400 mt-2">Permis A2, A1 & Code Moto</p>
+                </a>
+                <a href="#post-permis"
+                    class="group p-6 bg-brand-secondary border border-white/5 rounded-xl hover:border-brand-primary transition text-center">
+                    <div class="text-brand-primary mb-3"><i data-lucide="award" class="w-10 h-10 mx-auto"></i></div>
+                    <h3 class="text-xl font-bold group-hover:text-brand-primary transition">Formations Post-Permis</h3>
+                    <p class="text-sm text-gray-400 mt-2">Passerelles & Perfectionnement</p>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- Présentation de l'auto-école -->
-    <section class="py-12 md:py-20 bg-brand-secondary">
+    <!-- Section Permis B -->
+    <section id="permis-b" class="py-20 bg-brand-secondary">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div class="md:w-1/2">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-6">L'Excellence à Saint-Denis</h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Chez <span class="text-brand-primary font-bold">Axe'S Permis</span>, nous ne nous contentons pas
-                        de vous apprendre à conduire.
-                        Nous formons des conducteurs responsables et sûrs d'eux. Située idéalement face à la gare de
-                        Saint-Denis,
-                        notre auto-école met à votre disposition une équipe pédagogique passionnée et des outils
-                        modernes pour garantir votre réussite.
-                    </p>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle"
-                                class="text-brand-primary"></i> Taux de réussite élevé</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle"
-                                class="text-brand-primary"></i> Suivi personnalisé</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check-circle"
-                                class="text-brand-primary"></i> Facilités de paiement</li>
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-1 w-12 bg-brand-primary"></div>
+                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-brand-text">Permis B
+                </h2>
+            </div>
+
+            <!-- Formules -->
+            <h3 class="text-2xl font-bold mb-8 text-brand-primary">Nos Formules Complètes</h3>
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div
+                    class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition">
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-2">Permis B - Manuelle</h4>
+                        <p class="text-gray-400 text-sm mb-6">Formation traditionnelle sur boîte manuelle.</p>
+                        <div class="text-4xl font-black text-brand-primary mb-6">890€</div>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Frais de dossier & inscription</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> 20h de conduite</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Kit pédagogique numérique</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> 1 accompagnement à l'examen pratique</li>
+                        </ul>
+                        <a href="inscription.html"
+                            class="block w-full py-3 bg-brand-primary text-white text-center font-bold rounded-lg hover:bg-brand-accent transition">S'inscrire</a>
+                    </div>
+                </div>
+                <div
+                    class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition">
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold mb-2">Permis B - Automatique (BVA)</h4>
+                        <p class="text-gray-400 text-sm mb-6">Formation simplifiée sur boîte automatique.</p>
+                        <div class="text-4xl font-black text-brand-primary mb-6">690€</div>
+                        <ul class="space-y-3 text-gray-300 mb-8">
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Frais de dossier & inscription</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> 13h de conduite</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Kit pédagogique numérique</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> 1 accompagnement à l'examen pratique</li>
+                        </ul>
+                        <a href="inscription.html"
+                            class="block w-full py-3 bg-brand-primary text-white text-center font-bold rounded-lg hover:bg-brand-accent transition">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Code de la route -->
+            <div class="mb-16 bg-brand-bg p-8 rounded-2xl border border-white/5">
+                <h3 class="text-2xl font-bold mb-6 text-brand-primary flex items-center gap-3">
+                    <i data-lucide="book-open" class="w-8 h-8"></i> Option Code de la Route
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-gray-300 mb-4">Préparez votre examen théorique avec nos outils pédagogiques
+                            performants. Accès en salle et en ligne 24h/24.</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>• Accès illimité salle de code</li>
+                            <li>• Livre de Code et Code en ligne ETM</li>
+                            <li>• Prise en charge des démarches administratives</li>
+                        </ul>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm text-gray-400">Forfait Code</div>
+                        <div class="text-5xl font-black text-brand-primary">100 €</div>
+                        <div class="text-sm text-gray-400 mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prestations à la carte -->
+            <h3 class="text-2xl font-bold mb-8 text-brand-primary">Prestations à la carte (Permis B)</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-white/10 text-gray-400 text-sm uppercase">
+                            <th class="py-4 px-4">Prestation</th>
+                            <th class="py-4 px-4 text-right">Tarif TTC</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-4">Heure de conduite supplémentaire (Manuelle)</td>
+                            <td class="py-4 px-4 text-right font-bold">50€</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-4">Heure de conduite supplémentaire (Automatique)</td>
+                            <td class="py-4 px-4 text-right font-bold">55€</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-4">Évaluation de départ</td>
+                            <td class="py-4 px-4 text-right font-bold">50€</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-4">Frais d'accompagnement examen pratique</td>
+                            <td class="py-4 px-4 text-right font-bold">180€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Permis A -->
+    <section id="permis-a" class="py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-1 w-12 bg-brand-primary"></div>
+                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-brand-text">Permis A (Moto)
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Formule A2 -->
+                <div class="md:col-span-2 bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 p-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold">Permis A2</h4>
+                            <p class="text-gray-400 text-sm">Pour les motos jusqu'à 35 kW (47.5 ch).</p>
+                        </div>
+                        <div class="text-4xl font-black text-brand-primary mt-4 md:mt-0">690€</div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Frais de dossier</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Évaluation</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> 20h de conduite (8h plateau / 12h circu)
+                            </li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Accompagnement Plateau</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Accompagnement Circulation</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-brand-primary w-5 h-5"></i> Piste privée</li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <a href="inscription.html"
+                            class="inline-block px-8 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-accent transition">S'inscrire
+                            au Permis A2</a>
+                    </div>
+                </div>
+
+                <!-- Code Moto -->
+                <div
+                    class="bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 p-8 flex flex-col justify-center">
+                    <h4 class="text-xl font-bold mb-4 text-brand-primary">Code Moto (ETM)</h4>
+                    <p class="text-gray-400 text-sm mb-6">L'examen théorique moto est obligatoire pour le permis A2.</p>
+                    <div class="text-3xl font-black text-white mb-6">100€</div>
+                    <ul class="space-y-2 text-sm text-gray-400 mb-6">
+                        <li>• Livre de Code et Accès Code en ligne ETM</li>
+                        <li>• Prise en charge des démarches administratives</li>
                     </ul>
                 </div>
-                <div class="md:w-1/2">
-                    <div class="bg-brand-bg p-8 rounded-2xl border border-white/5 relative overflow-hidden">
-                        <div
-                            class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-brand-primary/20 rounded-full blur-xl">
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">Pourquoi nous ?</h3>
-                        <p class="text-sm text-gray-400 italic mb-6">"Une auto-école qui s'adapte à ses élèves, et non
-                            l'inverse."</p>
-                        <a href="contact.html"
-                            class="inline-block text-brand-primary font-bold hover:text-brand-accent transition">Nous
-                            contacter <i data-lucide="arrow-right" class="inline w-4 h-4 ml-1"></i></a>
-                    </div>
+            </div>
+
+            <!-- Permis AM & Formation 125 -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Permis AM -->
+                <div class="bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 p-8 hover:border-brand-primary/50 transition">
+                    <h4 class="text-2xl font-bold mb-2">Permis AM (BSR)</h4>
+                    <p class="text-gray-400 text-sm mb-6">Conduite de cyclomoteur 50cc dès 14 ans.</p>
+                    <div class="text-4xl font-black text-brand-primary mb-6">200€</div>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-brand-primary w-5 h-5"></i> 8h de formation obligatoire</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-brand-primary w-5 h-5"></i> Théorie et Pratique</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-brand-primary w-5 h-5"></i> Attestation de fin de formation</li>
+                    </ul>
+                    <a href="inscription.html" class="block w-full py-3 border border-brand-primary text-brand-primary text-center font-bold rounded-lg hover:bg-brand-primary hover:text-white transition">S'inscrire</a>
                 </div>
+
+                <!-- Formation 125 -->
+                <div class="bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 p-8 hover:border-brand-primary/50 transition">
+                    <h4 class="text-2xl font-bold mb-2">Formation 125cc</h4>
+                    <p class="text-gray-400 text-sm mb-6">Pour les titulaires du permis B (2 ans min).</p>
+                    <div class="text-4xl font-black text-brand-primary mb-6">200€</div>
+                    <ul class="space-y-3 text-gray-300 mb-8">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-brand-primary w-5 h-5"></i> 7h de formation</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-brand-primary w-5 h-5"></i> Prise en main & Circulation</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-brand-primary w-5 h-5"></i> Attestation délivrée directement</li>
+                    </ul>
+                    <a href="inscription.html" class="block w-full py-3 border border-brand-primary text-brand-primary text-center font-bold rounded-lg hover:bg-brand-primary hover:text-white transition">S'inscrire</a>
+                </div>
+            </div>
+
+            <!-- Prestations à la carte Moto -->
+            <h3 class="text-2xl font-bold mb-8 text-brand-primary">Prestations à la carte (Moto)</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-white/10 text-gray-400 text-sm uppercase">
+                            <th class="py-4 px-4">Prestation</th>
+                            <th class="py-4 px-4 text-right">Tarif TTC</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-300">
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-4">Heure de conduite supplémentaire (Plateau/Circu)</td>
+                            <td class="py-4 px-4 text-right font-bold">50€</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-4">Frais d'accompagnement examen (Plateau ou Circu)</td>
+                            <td class="py-4 px-4 text-right font-bold">90€</td>
+                        </tr>
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-4 px-4">Équipement obligatoire (Gants, Casque)</td>
+                            <td class="py-4 px-4 text-right font-bold">Non fourni</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Formations Permis B -->
-    <section class="py-12 md:py-20 bg-brand-bg">
+    <!-- Section Post-Permis -->
+    <section id="post-permis" class="py-20 bg-brand-secondary">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex items-center gap-4 mb-8 md:mb-12 justify-center">
-                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
-                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest text-center">Permis B (Voiture)</h2>
-                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-1 w-12 bg-brand-primary"></div>
+                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-widest text-brand-text">Formations
+                    Post-Permis</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-                <!-- Manuelle -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Passerelle B78 -->
                 <div
-                    class="bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition duration-300 group">
-                    <div class="h-2 bg-brand-primary w-full"></div>
-                    <div class="p-6 md:p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl md:text-2xl font-bold">Boîte Manuelle</h3>
-                            <i data-lucide="car" class="text-brand-primary w-8 h-8"></i>
-                        </div>
-                        <p class="text-gray-400 text-sm mb-6">La formation classique pour conduire tout type de
-                            véhicule.</p>
-                        <div class="text-4xl font-black text-brand-primary mb-2">890€ <span
-                                class="text-sm font-normal text-gray-400">/ dès</span></div>
-                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> Evaluation de départ</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> 20h de conduite</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> Kit pédagogique numérique</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> 1 présentation à l'examen</li>
-                        </ul>
-                        <a href="inscription.html"
-                            class="block w-full text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">Choisir
-                            cette formule</a>
-                    </div>
-                </div>
-
-                <!-- Automatique -->
-                <div
-                    class="bg-brand-secondary rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition duration-300 group">
-                    <div class="h-2 bg-brand-accent w-full"></div>
-                    <div class="p-6 md:p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl md:text-2xl font-bold">Boîte Automatique</h3>
-                            <i data-lucide="zap" class="text-brand-accent w-8 h-8"></i>
-                        </div>
-                        <p class="text-gray-400 text-sm mb-6">Apprentissage simplifié et plus rapide (Permis BVA).</p>
-                        <div class="text-4xl font-black text-brand-primary mb-2">690€ <span
-                                class="text-sm font-normal text-gray-400">/ dès</span></div>
-                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> Evaluation de départ</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> 13h de conduite</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> Kit pédagogique numérique</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check"
-                                    class="w-4 h-4 text-brand-primary"></i> 1 présentation à l'examen</li>
-                        </ul>
-                        <a href="inscription.html"
-                            class="block w-full text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">Choisir
-                            cette formule</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formations Permis A -->
-    <section class="py-12 md:py-20 bg-brand-secondary">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex items-center gap-4 mb-8 md:mb-12 justify-center">
-                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
-                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest text-center">Permis A (Moto)</h2>
-                <div class="h-1 w-8 md:w-12 bg-brand-primary"></div>
-            </div>
-
-            <div
-                class="max-w-md mx-auto bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition duration-300">
-                <div class="h-48 bg-gray-800 relative">
-                    <img src="img/moto.png" alt="Moto" class="w-full h-full object-cover opacity-60">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i data-lucide="bike" class="w-16 h-16 text-white/80"></i>
-                    </div>
-                </div>
-                <div class="p-6 md:p-8 text-center">
-                    <h3 class="text-2xl font-bold mb-2">Permis A2</h3>
-                    <p class="text-gray-400 text-sm mb-6">Pour les passionnés de deux-roues.</p>
-                    <div class="text-4xl font-black text-brand-primary mb-6">690€ <span
-                            class="text-sm font-normal text-gray-400">/ dès</span></div>
-                    <ul class="text-left space-y-3 text-sm text-gray-300 mb-8 max-w-xs mx-auto">
-                        <li class="flex items-center gap-2"><i data-lucide="check"
-                                class="w-4 h-4 text-brand-primary"></i> 20h de conduite</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check"
-                                class="w-4 h-4 text-brand-primary"></i> Piste privée (Parc des Expos)</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check"
-                                class="w-4 h-4 text-brand-primary"></i> 2 présentations aux examens</li>
+                    class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 p-8 hover:border-brand-primary/50 transition">
+                    <h4 class="text-2xl font-bold mb-2">Passerelle B78 vers B</h4>
+                    <p class="text-brand-primary font-medium mb-6">Boîte Automatique vers Manuelle</p>
+                    <div class="text-5xl font-black text-white mb-8">295€</div>
+                    <ul class="space-y-4 text-gray-300 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="clock" class="text-brand-primary w-5 h-5 mt-1"></i>
+                            <span><strong>7 heures</strong> de formation pratique</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="file-check" class="text-brand-primary w-5 h-5 mt-1"></i>
+                            <span><strong>Sans examen</strong> : attestation délivrée en fin de formation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="user-check" class="text-brand-primary w-5 h-5 mt-1"></i>
+                            <span>Accessible directement après l'obtention du permis BVA</span>
+                        </li>
                     </ul>
                     <a href="inscription.html"
-                        class="block w-full text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">Je
-                        m'inscris</a>
+                        class="block w-full py-3 border border-brand-primary text-brand-primary text-center font-bold rounded-lg hover:bg-brand-primary hover:text-white transition">Réserver
+                        ma place</a>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Formations Post-Permis -->
-    <section class="py-12 md:py-20 bg-brand-bg">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">Formations Post-Permis</h2>
-            <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-                <div class="p-6 border border-white/10 rounded-xl hover:bg-white/5 transition">
-                    <h4 class="text-xl font-bold mb-2 text-brand-primary">Passerelle B78 vers B</h4>
-                    <p class="text-sm text-gray-400 mb-4">Convertissez votre permis boîte auto en boîte manuelle.</p>
-                    <div class="flex justify-between items-end">
-                        <span class="text-3xl font-bold">295€</span>
-                        <span class="text-sm bg-white/10 px-3 py-1 rounded-full">7 heures</span>
-                    </div>
-                </div>
-                <div class="p-6 border border-white/10 rounded-xl hover:bg-white/5 transition">
-                    <h4 class="text-xl font-bold mb-2 text-brand-primary">Passerelle A2 vers A</h4>
-                    <p class="text-sm text-gray-400 mb-4">Après 2 ans de permis A2, passez au gros cube.</p>
-                    <div class="flex justify-between items-end">
-                        <span class="text-3xl font-bold">200€</span>
-                        <span class="text-sm bg-white/10 px-3 py-1 rounded-full">7 heures</span>
-                    </div>
+                <!-- Passerelle A2 vers A -->
+                <div
+                    class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 p-8 hover:border-brand-primary/50 transition">
+                    <h4 class="text-2xl font-bold mb-2">Passerelle A2 vers A</h4>
+                    <p class="text-brand-primary font-medium mb-6">Gros Cube (Toutes cylindrées)</p>
+                    <div class="text-5xl font-black text-white mb-8">200€</div>
+                    <ul class="space-y-4 text-gray-300 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="clock" class="text-brand-primary w-5 h-5 mt-1"></i>
+                            <span><strong>7 heures</strong> de formation (Théorie + Plateau + Circu)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="file-check" class="text-brand-primary w-5 h-5 mt-1"></i>
+                            <span><strong>Sans examen</strong> : attestation délivrée en fin de formation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="user-check" class="text-brand-primary w-5 h-5 mt-1"></i>
+                            <span>Accessible après 2 ans de permis A2</span>
+                        </li>
+                    </ul>
+                    <a href="inscription.html"
+                        class="block w-full py-3 border border-brand-primary text-brand-primary text-center font-bold rounded-lg hover:bg-brand-primary hover:text-white transition">Réserver
+                        ma place</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-secondary border-t border-white/10 pt-16 pb-8">
+    <footer class="bg-brand-bg border-t border-white/10 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <!-- 1er colonne -->
