@@ -100,12 +100,13 @@
         </section>
     </header>
 
-    <!-- Formulaire Section -->
+    <!-- Formulaire -->
     <section class="py-20 bg-brand-secondary">
         <div class="max-w-4xl mx-auto px-4">
             <form id="inscriptionForm" class="bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl">
+                <input type="hidden" name="form_type" value="inscription">
                 
-                <!-- Step 1: Motif -->
+                <!-- Motif -->
                 <div class="mb-12">
                     <h3 class="text-xl font-bold mb-6 text-center">Quel est l'objet de votre demande ?</h3>
                     <div class="grid md:grid-cols-3 gap-4">
@@ -133,10 +134,10 @@
                     </div>
                 </div>
 
-                <!-- Dynamic Content Area -->
+
                 <div id="dynamicContent" class="space-y-6">
                     
-                    <!-- PRE-INSCRIPTION SECTIONS -->
+                    <!-- PRE-INSCRIPTION -->
                     <div id="section-preinscription" class="space-y-6">
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2">Type de Permis</label>
@@ -151,7 +152,7 @@
                             </select>
                         </div>
 
-                        <!-- Specifics Permis B -->
+                        <!-- Permis B -->
                         <div id="spec-permis-b" class="hidden space-y-6 border-t border-white/5 pt-6">
                             <div>
                                 <span class="block text-sm font-medium text-gray-400 mb-2">Boîte de vitesse</span>
@@ -186,7 +187,7 @@
                             </div>
                         </div>
 
-                        <!-- Specifics Permis A -->
+                        <!-- Permis A -->
                         <div id="spec-permis-a" class="hidden space-y-6 border-t border-white/5 pt-6">
                             <div class="grid md:grid-cols-2 gap-4">
                                 <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5">
@@ -204,7 +205,7 @@
                             </div>
                         </div>
 
-                        <!-- Specifics Passerelle A2 -> A -->
+                        <!-- Passerelle A2 -> A -->
                         <div id="spec-passerelle-a2-a" class="hidden space-y-6 border-t border-white/5 pt-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-400 mb-2">Date d'obtention du Permis A2</label>
@@ -212,7 +213,7 @@
                             </div>
                         </div>
 
-                        <!-- Specifics Permis 125 -->
+                        <!-- Permis 125 -->
                         <div id="spec-permis-125" class="hidden space-y-6 border-t border-white/5 pt-6">
                             <div>
                                 <label class="block text-sm font-medium text-gray-400 mb-2">Date d'obtention du Permis B</label>
@@ -250,7 +251,7 @@
                         </div>
                     </div>
 
-                    <!-- COMMON FIELDS (Infos Personnelles) -->
+                    <!-- Infos Personnelles -->
                     <div id="common-fields" class="border-t border-white/10 pt-8 space-y-6">
                         <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
                         <div class="grid md:grid-cols-2 gap-6">
@@ -365,56 +366,9 @@
 
     <!-- Scripts JS & Icônes -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/scripts.js"></script>
 
-    <script>
-        function handleMotifChange() {
-            const motif = document.querySelector('input[name="motif"]:checked').value;
-            const dynamicContent = document.getElementById('dynamicContent');
-            const secPre = document.getElementById('section-preinscription');
-            const secDevis = document.getElementById('section-devis');
-            const secRens = document.getElementById('section-renseignement');
-
-            dynamicContent.classList.remove('hidden');
-            secPre.classList.add('hidden');
-            secDevis.classList.add('hidden');
-            secRens.classList.add('hidden');
-
-            if (motif === 'preinscription') {
-                secPre.classList.remove('hidden');
-            } else if (motif === 'devis') {
-                secDevis.classList.remove('hidden');
-            } else if (motif === 'renseignement') {
-                secRens.classList.remove('hidden');
-            }
-        }
-
-        function handlePermisChange() {
-            const type = document.getElementById('permisType').value;
-            
-            // Hide all specifics
-            document.getElementById('spec-permis-b').classList.add('hidden');
-            document.getElementById('spec-permis-a').classList.add('hidden');
-            document.getElementById('spec-passerelle-a2-a').classList.add('hidden');
-            document.getElementById('spec-permis-125').classList.add('hidden');
-
-            // Show selected
-            if (type === 'permis-b') document.getElementById('spec-permis-b').classList.remove('hidden');
-            if (type === 'permis-a') document.getElementById('spec-permis-a').classList.remove('hidden');
-            if (type === 'passerelle-a2-a') document.getElementById('spec-passerelle-a2-a').classList.remove('hidden');
-            if (type === 'permis-125') document.getElementById('spec-permis-125').classList.remove('hidden');
-        }
-
-        function toggleExamCount() {
-            const checkbox = document.getElementById('check-exam-elsewhere');
-            const div = document.getElementById('exam-count-div');
-            if (checkbox.checked) {
-                div.classList.remove('hidden');
-            } else {
-                div.classList.add('hidden');
-            }
-        }
-    </script>
 </body>
 
 </html>

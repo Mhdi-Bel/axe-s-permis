@@ -141,7 +141,8 @@
     <section class="py-20 bg-brand-bg">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">Envoyez-nous un message</h2>
-            <form class="space-y-6">
+            <form id="contactForm" class="space-y-6">
+                <input type="hidden" name="form_type" value="contact">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label for="nom" class="block text-sm font-medium text-gray-400 mb-2">Nom</label>
@@ -296,6 +297,7 @@
 
     <!-- Scripts JS & Icônes -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/scripts.js"></script>
 
 </body>
