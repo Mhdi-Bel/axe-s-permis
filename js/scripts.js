@@ -4,7 +4,7 @@ lucide.createIcons();
 // Initialisation EmailJS
 (function() {
     // REMPLACEZ 'VOTRE_PUBLIC_KEY' PAR VOTRE VRAIE CLÉ (ex: "user_Mz7...")
-    emailjs.init("qYboDKVaGauXLqJt9");
+    emailjs.init("");
 })();
 
 // menu hamburger
