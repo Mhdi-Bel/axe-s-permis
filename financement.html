@@ -294,80 +294,46 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-brand-secondary border-t border-white/10 pt-16 pb-8">
+    <footer class="bg-brand-secondary border-t border-white/10 pt-12 pb-8">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <!-- 1er colonne -->
-                <div class="col-span-1 md:col-span-1">
-                    <a href="#" class="inline-block mb-6">
-                        <span class="text-2xl font-bold text-brand-primary">Axe'S <span
-                                class="text-white">Permis</span></span>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+                <!-- Brand & Social -->
+                <div class="text-center md:text-left">
+                    <a href="index.html" class="inline-block mb-4">
+                        <span class="text-2xl font-bold text-brand-primary">Axe'S <span class="text-white">Permis</span></span>
                     </a>
-                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
-                        Votre auto-école de référence à Saint-Denis. Formation de qualité, moniteurs pédagogues et
-                        réussite assurée.
+                    <p class="text-gray-400 text-sm mb-6 max-w-xs mx-auto md:mx-0">
+                        Votre auto-école de référence à Saint-Denis.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-brand-primary transition"><i data-lucide="facebook"
-                                class="w-5 h-5"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-brand-primary transition"><i data-lucide="instagram"
-                                class="w-5 h-5"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-brand-primary transition"><i data-lucide="twitter"
-                                class="w-5 h-5"></i></a>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-brand-primary transition"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-brand-primary transition"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-brand-primary transition"><i data-lucide="twitter" class="w-6 h-6"></i></a>
                     </div>
                 </div>
 
-                <!-- colonne nav -->
-                <div>
-                    <h5 class="font-bold text-white mb-6">Navigation</h5>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="index.html" class="hover:text-brand-primary transition">Accueil</a></li>
-                        <li><a href="tarifs-formation.html" class="hover:text-brand-primary transition">Formations &
-                                Tarifs</a></li>
-                        <li><a href="financement.html" class="hover:text-brand-primary transition">Financement</a></li>
-                        <li><a href="label-qualite.html" class="hover:text-brand-primary transition">Label Qualité</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- colonne info -->
-                <div>
-                    <h5 class="font-bold text-white mb-6">Informations</h5>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="contact.html" class="hover:text-brand-primary transition">Contact</a></li>
-                        <li><a href="inscription.html" class="hover:text-brand-primary transition">S'inscrire</a></li>
-                        <li><a href="#" class="hover:text-brand-primary transition">Mentions légales</a></li>
-                        <li><a href="#" class="hover:text-brand-primary transition">CGV</a></li>
-                    </ul>
-                </div>
-
-                <!-- colonne contact -->
-                <div>
-                    <h5 class="font-bold text-white mb-6">Nous contacter</h5>
-                    <ul class="space-y-3 text-sm text-gray-400 mb-6">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-brand-primary shrink-0"></i>
-                            <span>6 rue Charles Michels,<br>93200 Saint-Denis</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="phone" class="w-5 h-5 text-brand-primary shrink-0"></i>
-                            <a href="tel:0183726256" class="hover:text-white">01 83 72 62 56</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i data-lucide="mail" class="w-5 h-5 text-brand-primary shrink-0"></i>
-                            <a href="mailto:contact@axe-s-permis.com"
-                                class="hover:text-white">contact@axe-s-permis.com</a>
-                        </li>
-                    </ul>
+                <!-- Links (Informations) -->
+                <div class="flex flex-wrap justify-center md:justify-end gap-6 text-sm font-medium text-gray-400">
+                    <a href="contact.html" class="hover:text-brand-primary transition">Contact</a>
+                    <a href="inscription.html" class="hover:text-brand-primary transition">S'inscrire</a>
+                    <a href="#" class="hover:text-brand-primary transition">Mentions légales</a>
+                    <a href="#" class="hover:text-brand-primary transition">CGV</a>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="border-t border-white/10 pt-8 text-center md:text-left">
                 <p class="text-gray-500 text-xs">© 2026 Auto-École Axe'S Permis. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Bouton WhatsApp Flottant -->
+    <a href="https://wa.me/33183726256" target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#20bd5a] transition-all hover:scale-105 flex items-center justify-center gap-3"
+       aria-label="Contactez-nous sur WhatsApp">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span class="font-bold">Contactez-nous sur WhatsApp</span>
+    </a>
 
     <!-- Scripts JS & Icônes -->
     <script src="https://unpkg.com/lucide@latest"></script>
