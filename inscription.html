@@ -103,187 +103,364 @@
     <!-- Formulaire -->
     <section class="py-20 bg-brand-secondary">
         <div class="max-w-4xl mx-auto px-4">
-            <form id="inscriptionForm" class="bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl">
-                <input type="hidden" name="form_type" value="inscription">
-                
-                <!-- Motif -->
-                <div class="mb-12">
-                    <h3 class="text-xl font-bold mb-6 text-center">Quel est l'objet de votre demande ?</h3>
-                    <div class="grid md:grid-cols-3 gap-4">
+            <!-- Motif Selection (Hors Formulaire) -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold mb-6 text-center">Quel est l'objet de votre demande ?</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <label class="cursor-pointer">
+                        <input type="radio" name="motif" value="preinscription" class="peer sr-only" onchange="handleMotifChange()" checked>
+                        <div class="p-4 rounded-xl border border-white/10 bg-brand-bg text-center hover:border-brand-primary peer-checked:bg-brand-primary peer-checked:text-white peer-checked:border-brand-primary transition">
+                            <i data-lucide="file-edit" class="w-8 h-8 mx-auto mb-2"></i>
+                            <span class="font-bold">Pré-inscription</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="motif" value="devis" class="peer sr-only" onchange="handleMotifChange()">
+                        <div class="p-4 rounded-xl border border-white/10 bg-brand-bg text-center hover:border-brand-primary peer-checked:bg-brand-primary peer-checked:text-white peer-checked:border-brand-primary transition">
+                            <i data-lucide="calculator" class="w-8 h-8 mx-auto mb-2"></i>
+                            <span class="font-bold">Devis</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer">
+                        <input type="radio" name="motif" value="renseignement" class="peer sr-only" onchange="handleMotifChange()">
+                        <div class="p-4 rounded-xl border border-white/10 bg-brand-bg text-center hover:border-brand-primary peer-checked:bg-brand-primary peer-checked:text-white peer-checked:border-brand-primary transition">
+                            <i data-lucide="help-circle" class="w-8 h-8 mx-auto mb-2"></i>
+                            <span class="font-bold">Renseignement</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 1. Section Pré-inscription -->
+            <div id="section-preinscription">
+                <!-- Sélecteur de formation -->
+                <div class="bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6 mb-6">
+                    <h3 class="text-2xl font-bold text-brand-primary mb-4">Formulaire de Pré-inscription</h3>
+                    <div>
+                        <label for="permisType" class="block text-sm font-medium text-gray-400 mb-2">Choisissez une formation pour afficher le formulaire correspondant</label>
+                        <select id="permisType" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition" onchange="handlePermisChange()">
+                            <option value="">Choisir une formation...</option>
+                            <option value="permis-b">Permis B (Voiture)</option>
+                            <option value="permis-a">Permis A (Moto)</option>
+                            <option value="passerelle-a2-a">Passerelle A2 vers A</option>
+                            <option value="passerelle-bva-b">Passerelle BVA vers B</option>
+                            <option value="permis-am">Permis AM (BSR)</option>
+                            <option value="permis-125">Formation 125cc</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 1.1 Formulaire Pré-inscription: Permis B -->
+                <form id="form-preinscription-b" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="hidden" name="subject" value="Nouvelle Pré-inscription : Permis B">
+                    <input type="hidden" name="Formation" value="Permis B (Voiture)">
+
+                    <h3 class="text-2xl font-bold text-brand-primary mb-4">Pré-inscription : Permis B (Voiture)</h3>
+                    <div class="space-y-6 border-b border-white/10 pb-8">
+                        <div>
+                            <span class="block text-sm font-medium text-gray-400 mb-2">Boîte de vitesse</span>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="Boite" value="Manuelle" class="text-brand-primary focus:ring-brand-primary bg-brand-secondary border-white/10"> Manuelle</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="Boite" value="Automatique" class="text-brand-primary focus:ring-brand-primary bg-brand-secondary border-white/10"> Automatique (BVA)</label>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5"><input type="checkbox" name="A le code :" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10"><span>J'ai déjà le Code (ETG)</span></label>
+                            <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5"><input type="checkbox" name="A un autre permis" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10"><span>J'ai un autre permis</span></label>
+                        </div>
+                        <div>
+                            <label class="flex items-center gap-2 cursor-pointer mb-2"><input type="checkbox" id="check-exam-elsewhere" name="A deja passe l'examen dans une autre auto-école" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-secondary border-white/10" onchange="toggleExamCount()"><span>J'ai déjà passé l'examen dans une autre auto-école</span></label>
+                            <div id="exam-count-div" class="hidden mt-2 ml-6">
+                                <label class="block text-sm text-gray-400 mb-1">Combien de fois ?</label><input type="number" name="Combien d'examen ?" min="1" class="w-32 bg-brand-secondary border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-primary">
+                            </div>
+                        </div>
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Numéro NEPH (Facultatif)</label><input type="text" name="neph" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                    </div>
+                    <div class="pt-2 space-y-6">
+                        <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Nom</label><input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label><input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Email</label><input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label><input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label><textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea></div>
+                        <!-- CAPTCHA -->
+                        <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+                        <div class="text-center pt-4"><button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button></div>
+                    </div>
+                </form>
+
+                <!-- 1.2 Formulaire Pré-inscription: Permis A -->
+                <form id="form-preinscription-a" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="hidden" name="subject" value="Nouvelle Pré-inscription : Permis A (Moto)">
+                    <input type="hidden" name="Formation" value="Permis A (Moto)">
+
+                    <h3 class="text-2xl font-bold text-brand-primary mb-4">Pré-inscription : Permis A (Moto)</h3>
+                    <div class="space-y-6 border-b border-white/10 pb-8">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5"><input type="checkbox" name="A le Code Moto (ETM)" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10"><span>J'ai le Code Moto (ETM)</span></label>
+                            <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5"><input type="checkbox" name="A un autre permis" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10"><span>J'ai un autre permis</span></label>
+                            <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5"><input type="checkbox" name="A deja valide le Plateau" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10"><span>J'ai déjà validé le Plateau</span></label>
+                        </div>
+                    </div>
+                    <div class="pt-2 space-y-6">
+                        <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Nom</label><input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label><input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Email</label><input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label><input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label><textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea></div>
+                        <!-- CAPTCHA -->
+                        <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+                        <div class="text-center pt-4"><button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button></div>
+                    </div>
+                </form>
+
+                <!-- 1.3 Formulaire Pré-inscription: Passerelle A2 > A -->
+                <form id="form-preinscription-passerelle-a2-a" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;"> 
+                    <input type="hidden" name="subject" value="Nouvelle Pré-inscription : Passerelle A2 vers A">
+                    <input type="hidden" name="Formation" value="Passerelle A2 vers A">
+
+                    <h3 class="text-2xl font-bold text-brand-primary mb-4">Pré-inscription : Passerelle A2 vers A</h3>
+                    <div class="space-y-6 border-b border-white/10 pb-8">
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Date d'obtention du Permis A2</label><input type="date" name="Date obtention Permis A2" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                    </div>
+                    <div class="pt-2 space-y-6">
+                        <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Nom</label><input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label><input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Email</label><input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label><input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label><textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea></div>
+                        <!-- CAPTCHA -->
+                        <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+                        <div class="text-center pt-4"><button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button></div>
+                    </div>
+                </form>
+
+                <!-- 1.4 Formulaire Pré-inscription: Passerelle BVA > B -->
+                <form id="form-preinscription-passerelle-bva-b" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="hidden" name="subject" value="Nouvelle Pré-inscription : Passerelle BVA vers B">
+                    <input type="hidden" name="Formation" value="Passerelle BVA vers B">
+
+                    <h3 class="text-2xl font-bold text-brand-primary mb-4">Pré-inscription : Passerelle BVA vers B</h3>
+                    <div class="pt-2 space-y-6">
+                        <p class="text-gray-400 text-sm">Ce formulaire est pour les personnes souhaitant passer de la boîte automatique à la boîte manuelle.</p>
+                        <h4 class="text-lg font-bold text-brand-primary border-t border-white/10 pt-6">Vos Coordonnées</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Nom</label><input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label><input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Email</label><input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label><input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label><textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea></div>
+                        <!-- CAPTCHA -->
+                        <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+                        <div class="text-center pt-4"><button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button></div>
+                    </div>
+                </form>
+
+                <!-- 1.5 Formulaire Pré-inscription: Permis AM (BSR) -->
+                <form id="form-preinscription-permis-am" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="hidden" name="subject" value="Nouvelle Pré-inscription : Permis AM (BSR)">
+                    <input type="hidden" name="Formation" value="Permis AM (BSR)">
+
+                    <h3 class="text-2xl font-bold text-brand-primary mb-4">Pré-inscription : Permis AM (BSR)</h3>
+                    <div class="pt-2 space-y-6">
+                        <p class="text-gray-400 text-sm">Ce formulaire est pour la formation au Brevet de Sécurité Routière (dès 14 ans).</p>
+                        <h4 class="text-lg font-bold text-brand-primary border-t border-white/10 pt-6">Vos Coordonnées</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Nom</label><input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label><input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Email</label><input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label><input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label><textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea></div>
+                        <!-- CAPTCHA -->
+                        <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+                        <div class="text-center pt-4"><button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button></div>
+                    </div>
+                </form>
+
+                <!-- 1.6 Formulaire Pré-inscription: Formation 125cc -->
+                <form id="form-preinscription-125" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="hidden" name="subject" value="Nouvelle Pré-inscription : Formation 125cc">
+                    <input type="hidden" name="Formation" value="Formation 125cc">
+
+                    <h3 class="text-2xl font-bold text-brand-primary mb-4">Pré-inscription : Formation 125cc</h3>
+                    <div class="space-y-6 border-b border-white/10 pb-8">
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Date d'obtention du Permis B</label><input type="date" name="Date obtention Permis B" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                    </div>
+                    <div class="pt-2 space-y-6">
+                        <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Nom</label><input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label><input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Email</label><input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                            <div><label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label><input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></div>
+                        </div>
+                        <div><label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label><textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea></div>
+                        <!-- CAPTCHA -->
+                        <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                            <div class="h-captcha" data-captcha="true"></div>
+                        </div>
+                        <div class="text-center pt-4"><button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button></div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 2. Formulaire Devis -->
+            <form id="form-devis" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <input type="hidden" name="subject" value="Nouvelle Demande de Devis">
+                <input type="hidden" name="Type de demande" value="Devis">
+
+                <div class="space-y-6">
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Type de Devis</label>
+                    <div class="grid md:grid-cols-2 gap-4">
                         <label class="cursor-pointer">
-                            <input type="radio" name="motif" value="preinscription" class="peer sr-only" onchange="handleMotifChange()" checked>
-                            <div class="p-4 rounded-xl border border-white/10 bg-brand-secondary text-center hover:border-brand-primary peer-checked:bg-brand-primary peer-checked:text-white peer-checked:border-brand-primary transition">
-                                <i data-lucide="file-edit" class="w-8 h-8 mx-auto mb-2"></i>
-                                <span class="font-bold">Pré-inscription</span>
+                            <input type="radio" name="Type de Devis" value="Standard" class="peer sr-only" checked>
+                            <div class="p-4 rounded-lg border border-white/10 bg-brand-secondary hover:border-brand-primary peer-checked:border-brand-primary peer-checked:bg-brand-primary/10 transition">
+                                <span class="font-bold block mb-1">Devis Standard</span>
+                                <span class="text-xs text-gray-400">Pour information personnelle</span>
                             </div>
                         </label>
                         <label class="cursor-pointer">
-                            <input type="radio" name="motif" value="devis" class="peer sr-only" onchange="handleMotifChange()">
-                            <div class="p-4 rounded-xl border border-white/10 bg-brand-secondary text-center hover:border-brand-primary peer-checked:bg-brand-primary peer-checked:text-white peer-checked:border-brand-primary transition">
-                                <i data-lucide="calculator" class="w-8 h-8 mx-auto mb-2"></i>
-                                <span class="font-bold">Devis</span>
-                            </div>
-                        </label>
-                        <label class="cursor-pointer">
-                            <input type="radio" name="motif" value="renseignement" class="peer sr-only" onchange="handleMotifChange()">
-                            <div class="p-4 rounded-xl border border-white/10 bg-brand-secondary text-center hover:border-brand-primary peer-checked:bg-brand-primary peer-checked:text-white peer-checked:border-brand-primary transition">
-                                <i data-lucide="help-circle" class="w-8 h-8 mx-auto mb-2"></i>
-                                <span class="font-bold">Renseignement</span>
+                            <input type="radio" name="Type de Devis" value="Pole Emploi / CPF" class="peer sr-only">
+                            <div class="p-4 rounded-lg border border-white/10 bg-brand-secondary hover:border-brand-primary peer-checked:border-brand-primary peer-checked:bg-brand-primary/10 transition">
+                                <span class="font-bold block mb-1">Devis Pôle Emploi / CPF</span>
+                                <span class="text-xs text-gray-400">Pour dossier de financement</span>
                             </div>
                         </label>
                     </div>
                 </div>
 
-
-                <div id="dynamicContent" class="space-y-6">
-                    
-                    <!-- PRE-INSCRIPTION -->
-                    <div id="section-preinscription" class="space-y-6">
+                <!-- Champs Communs -->
+                <div class="border-t border-white/10 pt-8 space-y-6">
+                    <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">Type de Permis</label>
-                            <select id="permisType" name="permisType" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition" onchange="handlePermisChange()">
-                                <option value="">Choisir une formation...</option>
-                                <option value="permis-b">Permis B (Voiture)</option>
-                                <option value="permis-a">Permis A (Moto)</option>
-                                <option value="passerelle-a2-a">Passerelle A2 vers A</option>
-                                <option value="passerelle-bva-b">Passerelle BVA vers B</option>
-                                <option value="permis-am">Permis AM (BSR)</option>
-                                <option value="permis-125">Formation 125cc</option>
-                            </select>
-                        </div>
-
-                        <!-- Permis B -->
-                        <div id="spec-permis-b" class="hidden space-y-6 border-t border-white/5 pt-6">
-                            <div>
-                                <span class="block text-sm font-medium text-gray-400 mb-2">Boîte de vitesse</span>
-                                <div class="flex gap-4">
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="boite" value="manuelle" class="text-brand-primary focus:ring-brand-primary bg-brand-secondary border-white/10"> Manuelle</label>
-                                    <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="boite" value="auto" class="text-brand-primary focus:ring-brand-primary bg-brand-secondary border-white/10"> Automatique (BVA)</label>
-                                </div>
-                            </div>
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5">
-                                    <input type="checkbox" name="has_code" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10">
-                                    <span>J'ai déjà le Code (ETG)</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5">
-                                    <input type="checkbox" name="has_other_permis" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10">
-                                    <span>J'ai un autre permis</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="flex items-center gap-2 cursor-pointer mb-2">
-                                    <input type="checkbox" id="check-exam-elsewhere" name="exam_elsewhere" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-secondary border-white/10" onchange="toggleExamCount()">
-                                    <span>J'ai déjà passé l'examen dans une autre auto-école</span>
-                                </label>
-                                <div id="exam-count-div" class="hidden mt-2 ml-6">
-                                    <label class="block text-sm text-gray-400 mb-1">Combien de fois ?</label>
-                                    <input type="number" name="exam_count" min="1" class="w-32 bg-brand-secondary border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-primary">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Numéro NEPH (Facultatif)</label>
-                                <input type="text" name="neph" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                            </div>
-                        </div>
-
-                        <!-- Permis A -->
-                        <div id="spec-permis-a" class="hidden space-y-6 border-t border-white/5 pt-6">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5">
-                                    <input type="checkbox" name="moto_has_code" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10">
-                                    <span>J'ai le Code Moto (ETM)</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5">
-                                    <input type="checkbox" name="moto_has_permis" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10">
-                                    <span>J'ai un autre permis</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer bg-brand-secondary p-3 rounded-lg border border-white/5">
-                                    <input type="checkbox" name="moto_has_plateau" class="rounded text-brand-primary focus:ring-brand-primary bg-brand-bg border-white/10">
-                                    <span>J'ai déjà validé le Plateau</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Passerelle A2 -> A -->
-                        <div id="spec-passerelle-a2-a" class="hidden space-y-6 border-t border-white/5 pt-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Date d'obtention du Permis A2</label>
-                                <input type="date" name="date_a2" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                            </div>
-                        </div>
-
-                        <!-- Permis 125 -->
-                        <div id="spec-permis-125" class="hidden space-y-6 border-t border-white/5 pt-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Date d'obtention du Permis B</label>
-                                <input type="date" name="date_b" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DEVIS SECTIONS -->
-                    <div id="section-devis" class="hidden space-y-6">
-                        <label class="block text-sm font-medium text-gray-400 mb-2">Type de Devis</label>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <label class="cursor-pointer">
-                                <input type="radio" name="devis_type" value="basique" class="peer sr-only" checked>
-                                <div class="p-4 rounded-lg border border-white/10 bg-brand-secondary hover:border-brand-primary peer-checked:border-brand-primary peer-checked:bg-brand-primary/10 transition">
-                                    <span class="font-bold block mb-1">Devis Standard</span>
-                                    <span class="text-xs text-gray-400">Pour information personnelle</span>
-                                </div>
-                            </label>
-                            <label class="cursor-pointer">
-                                <input type="radio" name="devis_type" value="pole_emploi" class="peer sr-only">
-                                <div class="p-4 rounded-lg border border-white/10 bg-brand-secondary hover:border-brand-primary peer-checked:border-brand-primary peer-checked:bg-brand-primary/10 transition">
-                                    <span class="font-bold block mb-1">Devis Pôle Emploi / CPF</span>
-                                    <span class="text-xs text-gray-400">Pour dossier de financement</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- RENSEIGNEMENT SECTIONS -->
-                    <div id="section-renseignement" class="hidden space-y-6">
-                        <div>
-                            <label for="objet" class="block text-sm font-medium text-gray-400 mb-2">Objet de la demande</label>
-                            <input type="text" id="objet" name="objet" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                        </div>
-                    </div>
-
-                    <!-- Infos Personnelles -->
-                    <div id="common-fields" class="border-t border-white/10 pt-8 space-y-6">
-                        <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Nom</label>
-                                <input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label>
-                                <input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                            </div>
-                        </div>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                                <input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label>
-                                <input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
-                            </div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Nom</label>
+                            <input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label>
-                            <textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea>
-                        </div>
-
-                        <div class="text-center pt-4">
-                            <button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label>
+                            <input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
                         </div>
                     </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label>
+                            <input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label>
+                        <textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea>
+                    </div>
+                    <!-- CAPTCHA -->
+                    <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                        <div class="h-captcha" data-captcha="true"></div>
+                    </div>
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button>
+                    </div>
+                </div>
+            </form>
 
+            <!-- 3. Formulaire Renseignement -->
+            <form id="form-renseignement" class="hidden bg-brand-bg p-8 rounded-2xl border border-white/5 shadow-xl space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="69df8647-c97f-4064-b478-728d57c31d86">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <input type="hidden" name="subject" value="Nouvelle Demande de Renseignement">
+                <input type="hidden" name="Type de demande" value="Renseignement">
+
+                <h3 class="text-2xl font-bold text-brand-primary mb-4">Demande de Renseignement</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label for="objet" class="block text-sm font-medium text-gray-400 mb-2">Objet de la demande</label>
+                        <input type="text" id="objet" name="Objet de la demande" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
+                    </div>
+                </div>
+
+                <!-- Champs Communs -->
+                <div class="border-t border-white/10 pt-8 space-y-6">
+                    <h4 class="text-lg font-bold text-brand-primary">Vos Coordonnées</h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Nom</label>
+                            <input type="text" name="nom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Prénom</label>
+                            <input type="text" name="prenom" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                            <input type="email" name="email" required class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Téléphone <span class="text-xs text-gray-500">(Facultatif)</span></label>
+                            <input type="tel" name="phone" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Votre Message</label>
+                        <textarea name="message" rows="4" class="w-full bg-brand-secondary border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-primary transition"></textarea>
+                    </div>
+                    <!-- CAPTCHA -->
+                    <div class="text-gray-400 text-sm mb-4 text-center flex flex-col items-center gap-2">Veuillez confirmer que vous n'êtes pas un robot :
+                        <div class="h-captcha" data-captcha="true"></div>
+                    </div>
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-brand-primary text-white px-12 py-4 rounded-full font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-primary/20 w-full md:w-auto">Envoyer ma demande</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -366,8 +543,8 @@
 
     <!-- Scripts JS & Icônes -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
 
 </body>
 
