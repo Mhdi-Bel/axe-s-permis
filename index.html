@@ -4,12 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Configuration & SEO -->
     <title>Votre Auto-École à Saint-Denis : Axe'S Permis</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
@@ -87,7 +83,7 @@
         </div>
     </nav>
 
-    <!-- Section Hero (En-tête Principal) -->
+    <!-- En-tête Principal -->
     <header 
         class="relative h-[80vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden">
 
@@ -113,7 +109,7 @@
         </div>
     </header>
 
-    <!-- Section Avantages & Preuves Sociales -->
+    <!--Section Pourquoi Nous Choisir -->
     <section class="py-20 bg-brand-secondary">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">Pourquoi nous choisir ?</h2>
@@ -225,55 +221,105 @@
                     <h3 class="text-2xl font-bold uppercase tracking-widest text-brand-text">Formules de départ</h3>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 card-hover">
-                        <img src="img/c3.png" alt="Formule Éco" class="w-full h-48 object-cover opacity-80">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold mb-4 text-center">Permis B - (Boite manuelle)</h4>
+                    <!-- Permis B Manuelle -->
+                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition group">
+                        <div class="p-8">
+                            <div class="flex justify-center mb-6">
+                                <div class="p-4 bg-brand-secondary rounded-full border border-white/10 group-hover:border-brand-primary transition">
+                                    <i data-lucide="car" class="w-10 h-10 text-brand-primary"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-center">Permis B</h4>
+                            <p class="text-gray-400 text-sm text-center mb-6">Boîte Manuelle</p>
+                            
+                            <div class="text-center mb-6">
+                                <span class="text-sm text-gray-400">dès</span>
+                                <span class="text-4xl font-black text-brand-primary mx-2">890€</span>
+                            </div>
 
-                            <ul class="text-brand-text text-400 text-center space-y-2 mb-4 text-sm">
-                                <li>Livret d'apprentissage numérique</li>
-                                <li>20h de conduite individuelle</li>
-                                <li>1 passage a l'examen inclus</li>
+                            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>Livret d'apprentissage numérique</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>20h de conduite individuelle</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>1 passage à l'examen inclus</span>
+                                </li>
                             </ul>
-                            <div class="text text-brand-primary mb-4 text-center">dès <span
-                                    class="ml-1 text-3xl font-black text-brand-primary mb-4 ">890€</span></div>
-
-                            <a href="tarifs-formation.html#permis-b"
-                                class="block text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">En
-                                savoir plus</a>
+                            <a href="tarifs-formation.html#permis-b" class="block w-full py-3 bg-brand-primary text-white text-center font-bold rounded-lg hover:bg-brand-accent transition">En savoir plus</a>
                         </div>
                     </div>
-                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 card-hover">
-                        <img src="img/yaris.png" alt="Formule Zen" class="w-full h-48 object-cover ">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold mb-4">Permis BVA - (Boite automatique)</h4>
 
-                            <ul class="text-brand-text text-400 space-y-2 mb-4 text-sm">
-                                <li>Livret d'apprentissage numérique</li>
-                                <li>13h de conduite individuelle</li>
-                                <li>1 passage a l'examen inclus</li>
+                    <!-- Permis B Automatique -->
+                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition group">
+                        <div class="p-8">
+                            <div class="flex justify-center mb-6">
+                                <div class="p-4 bg-brand-secondary rounded-full border border-white/10 group-hover:border-brand-primary transition">
+                                    <i data-lucide="zap" class="w-10 h-10 text-brand-primary"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-center">Permis BVA</h4>
+                            <p class="text-gray-400 text-sm text-center mb-6">Boîte Automatique</p>
+                            
+                            <div class="text-center mb-6">
+                                <span class="text-sm text-gray-400">dès</span>
+                                <span class="text-4xl font-black text-brand-primary mx-2">690€</span>
+                            </div>
+
+                            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>Livret d'apprentissage numérique</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>13h de conduite individuelle</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>1 passage à l'examen inclus</span>
+                                </li>
                             </ul>
-                            <div class="text text-brand-primary mb-4">dès <span
-                                    class="ml-1 text-3xl font-black text-brand-primary mb-4">690€</span></div>
-                            <a href="tarifs-formation.html#permis-b"
-                                class="block text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">En
-                                savoir plus</a>
+                            <a href="tarifs-formation.html#permis-b" class="block w-full py-3 bg-brand-primary text-white text-center font-bold rounded-lg hover:bg-brand-accent transition">En savoir plus</a>
                         </div>
                     </div>
-                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 card-hover">
-                        <img src="img/moto.png" alt="Permis A2 (Moto)" class="w-full h-48 object-cover opacity-80">
-                        <div class="p-6">
-                            <h4 class="text-xl font-bold mb-4">Permis A2 - (Moto)</h4>
-                            <ul class="text-brand-text text-400 space-y-2 mb-4 text-sm">
-                                <li>20h de conduite </li>
-                                <li>2 passages aux examens inclus</li>
-                                <li>Pistes privées au Parc des Expositions</li>
+
+                    <!-- Permis A2 -->
+                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition group">
+                        <div class="p-8">
+                            <div class="flex justify-center mb-6">
+                                <div class="p-4 bg-brand-secondary rounded-full border border-white/10 group-hover:border-brand-primary transition">
+                                    <i data-lucide="bike" class="w-10 h-10 text-brand-primary"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-center">Permis A2</h4>
+                            <p class="text-gray-400 text-sm text-center mb-6">Permis Moto</p>
+                            
+                            <div class="text-center mb-6">
+                                <span class="text-sm text-gray-400">dès</span>
+                                <span class="text-4xl font-black text-brand-primary mx-2">690€</span>
+                            </div>
+
+                            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>20h de conduite</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>2 passages aux examens inclus</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>Pistes privées (Parc des Expos)</span>
+                                </li>
                             </ul>
-                            <div class="text text-brand-primary mb-4">dès <span
-                                    class="ml-1 text-3xl font-black text-brand-primary mb-4">690€</span></div>
-                            <a href="tarifs-formation.html#permis-a"
-                                class="block text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">En
-                                savoir plus</a>
+                            <a href="tarifs-formation.html#permis-a" class="block w-full py-3 bg-brand-primary text-white text-center font-bold rounded-lg hover:bg-brand-accent transition">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -283,38 +329,72 @@
             <div class="mb-20">
                 <div class="flex items-center gap-4 mb-8">
                     <div class="h-1 w-12 bg-brand-primary"></div>
-                    <h3 class="text-2xl font-bold uppercase tracking-widest text-brand-text">FORMATION POST-PERMIS
-                    </h3>
+                    <h3 class="text-2xl font-bold uppercase tracking-widest text-brand-text">Formations Post-Permis</h3>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-brand-bg rounded-2xl overflow-hidden border-white/5 card-hover">
-                        <div class="p-6">
-                            <h4 class="text-xl text-center font-bold mb-2">BVA vers B - (Boite manuelle)</h4>
-                            <div class="text text-center text-7xl text-brand-primary mt-4 mb-8"><span
-                                    class="ml-1 mt-4 mb-4 font-black text-brand-primary">295€</span></div>
-                            <ul class="text-brand-text text-400 space-y-2 mb-8 text-sm">
-                                <li>7 heures de formation</li>
-                                <li>Prise en charge des démarches administratives</li>
-                                <li>Aucun examen nécessaire</li>
+                    <!-- BVA vers B -->
+                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition group">
+                        <div class="p-8">
+                            <div class="flex justify-center mb-6">
+                                <div class="p-4 bg-brand-secondary rounded-full border border-white/10 group-hover:border-brand-primary transition">
+                                    <i data-lucide="refresh-cw" class="w-10 h-10 text-brand-primary"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-center">Passerelle B78 vers B</h4>
+                            <p class="text-gray-400 text-sm text-center mb-6">Boîte Auto vers Manuelle</p>
+                            
+                            <div class="text-center mb-6">
+                                <span class="text-4xl font-black text-brand-primary">295€</span>
+                            </div>
+
+                            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>7 heures de formation</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>Prise en charge administrative</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>Sans examen</span>
+                                </li>
                             </ul>
-                            <a href="tarifs-formation.html#post-permis"
-                                class="block text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">En
-                                savoir plus</a>
+                            <a href="tarifs-formation.html#post-permis" class="block w-full py-3 bg-brand-primary text-white text-center font-bold rounded-lg hover:bg-brand-accent transition">En savoir plus</a>
                         </div>
                     </div>
-                    <div class="bg-brand-bg rounded-2xl overflow-hidden border-white/5 card-hover">
-                        <div class="p-6">
-                            <h4 class="text-xl text-center font-bold mb-2">A2 vers A - (Levée de Restriction)</h4>
-                            <div class="text text-center text-7xl text-brand-primary mt-4 mb-8"><span
-                                    class="ml-1 mt-4 mb-4 font-black text-brand-primary">200€</span></div>
-                            <ul class="text-brand-text text-400 space-y-2 mb-8 text-sm">
-                                <li>7 heures de formation</li>
-                                <li>Prise en charge des démarches administratives</li>
-                                <li>Aucun examen nécessaire</li>
+
+                    <!-- A2 vers A -->
+                    <div class="bg-brand-bg rounded-2xl overflow-hidden border border-white/5 hover:border-brand-primary/50 transition group">
+                        <div class="p-8">
+                            <div class="flex justify-center mb-6">
+                                <div class="p-4 bg-brand-secondary rounded-full border border-white/10 group-hover:border-brand-primary transition">
+                                    <i data-lucide="arrow-up-circle" class="w-10 h-10 text-brand-primary"></i>
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-center">Passerelle A2 vers A</h4>
+                            <p class="text-gray-400 text-sm text-center mb-6">Vers Gros Cube</p>
+                            
+                            <div class="text-center mb-6">
+                                <span class="text-4xl font-black text-brand-primary">200€</span>
+                            </div>
+
+                            <ul class="space-y-3 text-gray-300 mb-8 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>7 heures de formation</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>Prise en charge administrative</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check" class="text-brand-primary w-4 h-4 mt-1 shrink-0"></i>
+                                    <span>Sans examen</span>
+                                </li>
                             </ul>
-                            <a href="tarifs-formation.html#post-permis"
-                                class="block text-center bg-brand-primary py-3 rounded-lg font-bold hover:bg-brand-accent transition">En
-                                savoir plus</a>
+                            <a href="tarifs-formation.html#post-permis" class="block w-full py-3 bg-brand-primary text-white text-center font-bold rounded-lg hover:bg-brand-accent transition">En savoir plus</a>
                         </div>
                     </div>
                 </div>
@@ -352,6 +432,16 @@
                                 <p class="text-gray-400 text-sm"><a href="tel:+33183726256"
                                         class="underline hover:text-red-500 transition-colors">
                                         01 83 72 62 56
+                                    </a></p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="message-circle" class="text-[#25D366]"></i>
+                            <div>
+                                <p class="font-bold">WhatsApp</p>
+                                <p class="text-gray-400 text-sm"><a href="https://wa.me/33780573898" target="_blank"
+                                        class="underline hover:text-green-500 transition-colors">
+                                        07 80 57 38 98
                                     </a></p>
                             </div>
                         </div>
@@ -412,8 +502,8 @@
                 <div class="flex flex-wrap justify-center md:justify-end gap-6 text-sm font-medium text-gray-400">
                     <a href="contact.html" class="hover:text-brand-primary transition">Contact</a>
                     <a href="inscription.html" class="hover:text-brand-primary transition">S'inscrire</a>
-                    <a href="#" class="hover:text-brand-primary transition">Mentions légales</a>
-                    <a href="#" class="hover:text-brand-primary transition">CGV</a>
+                    <a href="mentions-legales.html" class="hover:text-brand-primary transition">Mentions légales</a>
+                    <a href="politique-confidentialite.html" class="hover:text-brand-primary transition">Politique de confidentialité</a>
                 </div>
             </div>
 
@@ -424,7 +514,7 @@
     </footer>
 
     <!-- Bouton WhatsApp Flottant -->
-    <a href="https://wa.me/33183726256" target="_blank" 
+    <a href="https://wa.me/33780573898" target="_blank" 
        class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#20bd5a] transition-all hover:scale-105 flex items-center justify-center gap-3"
        aria-label="Contactez-nous sur WhatsApp">
         <i data-lucide="message-circle" class="w-6 h-6"></i>
