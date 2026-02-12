@@ -47,7 +47,7 @@
                 <!-- Centered Logo -->
                 <div class="bg-brand-text/90 rounded-full flex-shrink-0 mx-4">
                     <a href="index.html" class="">
-                        <img src="img/logo-axe.png" alt="Axe'S Permis"
+                        <img src="img/logo-axe.png" alt="Axe'S Permis" width="64" height="64"
                             class="mx-3 h-16 w-auto hover:scale-105 transition">
                     </a>
                 </div>
@@ -71,7 +71,7 @@
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
                 <a href="index.html" class="bg-brand-text/90 rounded-full">
-                    <img src="img/logo-axe.png" alt="Axe'S Permis" class="mx-2 h-12 w-auto">
+                    <img src="img/logo-axe.png" alt="Axe'S Permis" width="48" height="48" class="mx-2 h-12 w-auto">
                 </a>
                 <a href="tel:+33183726256" class="text-brand-primary hover:text-brand-accent transition">
                     <i data-lucide="phone" class="w-6 h-6"></i>
@@ -99,15 +99,19 @@
 
         <!-- Image de fond -->
         <div class="absolute inset-0 z-0">
-            <img src="img/hero-axe.jpg" alt="Auto-école Axe'S Permis" class="w-full h-full object-cover opacity-70">
+            <!-- Ajout de fetchpriority high pour l'image principale (LCP) -->
+            <img src="img/hero-axe.jpg" alt="Auto-école Axe'S Permis" width="1920" height="1080" fetchpriority="high" class="w-full h-full object-cover opacity-70">
             <div class="absolute inset-0 bg-gradient-to-b from-brand-secondary/60 to-brand-bg"></div>
         </div>
 
         <div class="relative z-10 flex flex-col items-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Prenez la route de la <span
-                    class="text-brand-primary">réussite</span></h1>
-            <p class="text-xl text-gray-400 mb-8 max-w-2xl text-center italic">"Votre liberté commence ici, avec un
-                accompagnement d'expert."</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Auto-École à Saint-Denis<br>
+                <span class="text-brand-primary">Axe'S</span> Permis
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto font-medium">
+                Votre réussite commence ici : Permis B, Moto A2, Code et Financement CPF.
+            </p>
             <div class="flex flex-col md:flex-row gap-4">
                 <a href="inscription.html"
                     class="bg-brand-primary text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition">S'inscrire
@@ -167,7 +171,7 @@
                 <div class="flex flex-col md:flex-row items-center gap-8">
                     <div class="shrink-0">
 
-                        <img src="img/logo-label.png" alt="Label Qualité" class="h-24 md:h-32 mt-1">
+                        <img src="img/logo-label.png" alt="Label Qualité" width="128" height="128" loading="lazy" class="h-24 md:h-32 mt-1">
 
                     </div>
                     <div>
@@ -502,7 +506,7 @@
                 <div
                     class="h-80 md:h-full bg-brand-secondary rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.9536725143894!2d2.3437221999999998!3d48.9353242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ecceb917671%3A0x597d697ebbaac149!2sAxe%20&#39;S&#39;%20Permis!5e0!3m2!1sfr!2sfr!4v1770566910082!5m2!1sfr!2sfr"
+                        title="Carte localisation Axe'S Permis" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.9536725143894!2d2.3437221999999998!3d48.9353242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66ecceb917671%3A0x597d697ebbaac149!2sAxe%20&#39;S&#39;%20Permis!5e0!3m2!1sfr!2sfr!4v1770566910082!5m2!1sfr!2sfr"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -561,6 +565,57 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="js/scripts.js"></script>
 
+    <!-- Données structurées SEO (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DrivingSchool",
+      "name": "Axe'S Permis",
+      "image": "https://www.axe-s-permis.com/img/logo-axe.png",
+      "@id": "https://www.axe-s-permis.com",
+      "url": "https://www.axe-s-permis.com",
+      "telephone": "+33183726256",
+      "email": "contact@axe-s-permis.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6 rue Charles Michels",
+        "addressLocality": "Saint-Denis",
+        "postalCode": "93200",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.9353242,
+        "longitude": 2.3437222
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "14:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "12:00"
+        }
+      ],
+      "priceRange": "€€",
+      "description": "Auto-école à Saint-Denis (93) face à la gare. Permis B, Conduite accompagnée, Permis Moto A2 et financement CPF. Taux de réussite élevé.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Saint-Denis"
+      }
+    }
+    </script>
 </body>
 
 </html>
