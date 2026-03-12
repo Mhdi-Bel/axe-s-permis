@@ -10,6 +10,94 @@ hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
 
+// --- ANIMATIONS & DYNAMISME ---
+// Injection des styles CSS pour les animations
+const animationStyles = document.createElement("style");
+animationStyles.textContent = `
+    /* Empêcher le scroll horizontal causé par les animations initiales */
+    body { overflow-x: hidden; }
+    
+    /* Classe de base : état initial invisible */
+    .anim-element {
+        opacity: 0;
+        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), 
+                    transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+        will-change: opacity, transform;
+    }
+
+    /* Variantes d'animation */
+    .anim-fade-up { transform: translateY(30px); }
+    .anim-slide-left { transform: translateX(-40px); }
+    .anim-slide-right { transform: translateX(40px); }
+    .anim-scale { transform: scale(0.95); }
+
+    /* État final : visible */
+    .anim-element.visible {
+        opacity: 1;
+        transform: translate(0) scale(1);
+    }
+`;
+document.head.appendChild(animationStyles);
+
+function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Jouer l'animation une seule fois
+            }
+        });
+    }, observerOptions);
+
+    // 1. Titres Principaux (H1, H2) - Glissement depuis la gauche
+    document.querySelectorAll('h1, h2').forEach(el => {
+        el.classList.add('anim-element', 'anim-slide-left');
+        observer.observe(el);
+    });
+
+    // 2. Grilles (Cartes, Tarifs) - Apparition en cascade (Staggered)
+    document.querySelectorAll('.grid').forEach(grid => {
+        Array.from(grid.children).forEach((child, index) => {
+            // On évite les conflits si déjà animé
+            if (!child.classList.contains('anim-element')) {
+                child.classList.add('anim-element', 'anim-fade-up');
+                // Délai progressif : 0s, 0.15s, 0.30s...
+                child.style.transitionDelay = `${(index % 3) * 0.15}s`; 
+                observer.observe(child);
+            }
+        });
+    });
+
+    // 3. Sections Flex (Image + Texte) - Diagonale ou latéral
+    document.querySelectorAll('.flex-col.lg\\:flex-row > div, .flex-col.md\\:flex-row > div').forEach((el, index) => {
+        el.classList.add('anim-element', index === 0 ? 'anim-slide-left' : 'anim-slide-right');
+        observer.observe(el);
+    });
+
+    // 4. Accordéons & Listes (FAQ, Critères)
+    document.querySelectorAll('details, ul:not(.flex) > li').forEach((el, index) => {
+        // Exclure navigation et footer
+        if (!el.closest('nav') && !el.closest('footer')) {
+            el.classList.add('anim-element', 'anim-fade-up');
+            observer.observe(el);
+        }
+    });
+
+    // 5. Boutons d'action (CTA) & Images isolées
+    document.querySelectorAll('a[class*="bg-brand-primary"], img:not(.h-16):not(.h-12)').forEach(el => {
+         if (!el.closest('nav') && !el.closest('.grid') && !el.classList.contains('anim-element')) {
+             el.classList.add('anim-element', 'anim-scale');
+             observer.observe(el);
+         }
+    });
+}
+
 function handleMotifChange() {
             const motif = document.querySelector('input[name="motif"]:checked').value;
             
@@ -160,4 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setupForm('form-preinscription-passerelle-bva-b');
             setupForm('form-preinscription-permis-am');
             setupForm('form-preinscription-125');
+            
+            // Lancement des animations
+            initScrollAnimations();
         });
