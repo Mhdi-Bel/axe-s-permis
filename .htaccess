@@ -1,0 +1,15 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Redirections des anciennes URLs .html vers les nouvelles URLs propres
+    RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # Servir les dossiers proprement (fallback si le serveur ne trouve pas)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([^/]+)/?$ $1/index.html [L]
+</IfModule>
