@@ -34,10 +34,16 @@
     <link rel="manifest" href="img/site.webmanifest" />
 
 
+    <!-- Préchargement image hero (LCP) -->
+    <link rel="preload" as="image" href="img/hero-axe.webp" fetchpriority="high">
+
+    <!-- Google Fonts non-bloquant -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
 
     <link rel="stylesheet" href="dist/output.css">
     <link rel="stylesheet" href="css/style.css">
@@ -579,7 +585,7 @@
     </a>
 
     <!-- Scripts JS & Icônes -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="js/scripts.js"></script>
 
     <!-- Données structurées SEO (Schema.org) -->
