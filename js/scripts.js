@@ -188,27 +188,20 @@ function setupForm(formId) {
 
                 // Conversion des checkboxes en Oui/Non
                 form.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    if (checkbox.name === 'botcheck') return; // Ignorer le champ anti-spam
                     formData.set(checkbox.name, checkbox.checked ? "Oui" : "Non");
                 });
 
-                const data = Object.fromEntries(formData.entries());
-                const json = JSON.stringify(data);
-
                 try {
-                    // Envoi vers Web3Forms
-                    const response = await fetch("https://api.web3forms.com/submit", {
+                    // Envoi vers l'action du formulaire (Formspree)
+                    const response = await fetch(form.action, {
                         method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Accept": "application/json"
-                        },
-                        body: json
+                        headers: { "Accept": "application/json" },
+                        body: formData
                     });
                     
                     const result = await response.json();
 
-                    if (response.status === 200) {
+                    if (response.ok) {
                         alert('Votre message a bien été envoyé ! Nous vous répondrons rapidement.');
                         form.reset();
                     } else {
