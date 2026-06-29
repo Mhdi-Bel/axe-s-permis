@@ -40,6 +40,11 @@ Options -Indexes
     Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net https://web3forms.com https://js.hcaptcha.com https://newassets.hcaptcha.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://newassets.hcaptcha.com; connect-src 'self' https://api.web3forms.com https://hcaptcha.com; form-action 'self' https://api.web3forms.com;"
 </IfModule>
 
+# ── Compression Gzip ──────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
 # ── Cache statique ─────────────────────────────────────────────────────────
 <IfModule mod_expires.c>
     ExpiresActive On
