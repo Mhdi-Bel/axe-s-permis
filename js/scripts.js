@@ -14,8 +14,6 @@ hamburger.addEventListener('click', () => {
 // Injection des styles CSS pour les animations
 const animationStyles = document.createElement("style");
 animationStyles.textContent = `
-    /* Empêcher le scroll horizontal causé par les animations initiales */
-    body { overflow-x: hidden; }
     
     /* Classe de base : état initial invisible */
     .anim-element {
@@ -30,6 +28,13 @@ animationStyles.textContent = `
     .anim-slide-left { transform: translateX(-40px); }
     .anim-slide-right { transform: translateX(40px); }
     .anim-scale { transform: scale(0.95); }
+
+    /* Sur mobile : pas de glissement horizontal, sinon les éléments pleine
+       largeur débordent de 40px à droite tant qu'ils ne sont pas visibles. */
+    @media (max-width: 767px) {
+        .anim-slide-left,
+        .anim-slide-right { transform: translateY(30px); }
+    }
 
     /* État final : visible */
     .anim-element.visible {
